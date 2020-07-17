@@ -1,5 +1,3 @@
-// console.log('funcionando');
-
 window.onload = permiso();
 
 function permiso() {
@@ -51,17 +49,12 @@ function crearVideo() {
             datos.append('user', user_id);
             datos.append('videos', 'crear');
 
-            /*console.log(datos.get('titulo'));
-             console.log(datos.get('enlace'));
-             console.log(datos.get('descripcion'));*/
-
             fetch('http://localhost/scroll/videoapi.php', {
                 method: 'POST',
                 body: datos
             })
                     .then(res => res.json())
                     .then(data => {
-                        console.log(data);
                         if (data === 1) {
                             respuesta.innerHTML = `
                 <div class="alert alert-primary" role="alert">
