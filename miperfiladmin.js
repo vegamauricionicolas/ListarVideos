@@ -7,8 +7,6 @@ window.onload = permiso();
 
 function permiso(){
     var rol = sessionStorage.getItem('rol');
-    console.log("PERMISO rol");
-    console.log(rol);
     if(rol === '1'){
         cargarMiPerfil();
     }else{
@@ -46,7 +44,6 @@ function mostrarMiPerfil(datos) {
         miperfil.innerHTML = '';
 
         for (let usuario of datos) {
-            //console.log(video.url);
             miperfil.innerHTML += `
                 <div class="col-lg-4 col-md-6 mb-4 my-5">
                     <h3>${usuario.nombre}</h3>
