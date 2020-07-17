@@ -1,5 +1,3 @@
-// console.log('funcionando');
-
 window.onload = cargarDatos;
 function cargarDatos() {
     try {
@@ -33,28 +31,14 @@ function enviarDatos() {
             var datos = new FormData(formulario);
 
             datos.append('tarea', 'loguear');
-
-
-            console.log("DATOS DEL FORMULARIO");
-            console.log(datos.get('user'));
-            console.log(datos.get('pass'));
-            console.log(datos.get('tarea'));
-            /*console.log(datos.get('titulo'));
-             console.log(datos.get('enlace'));
-             console.log(datos.get('descripcion'));*/
-
             fetch('http://localhost/scroll/usuarioapi.php', {
                 method: 'POST',
                 body: datos
             })
                     .then(res => res.json())
                     .then(data => {
-                        console.log("RESPUESTA");
-                        console.log(data);
                         switch (data) {
                             case 1:
-                                console.log("ADMIN");
-                                console.log(datos.get('user'));
                                 sessionStorage.setItem('user', datos.get('user'));
                                 sessionStorage.setItem('pass', datos.get('pass'));
                                 sessionStorage.setItem('rol', 1);
