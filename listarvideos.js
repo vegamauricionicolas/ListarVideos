@@ -40,7 +40,6 @@ function mostrarVideos(datos) {
         videos.innerHTML = '';
 
         for (let video of datos) {
-            //console.log(video.url);
             videos.innerHTML += `
                 <div class="col-lg-4 col-md-6 mb-4 my-5">
                     <iframe 
@@ -100,11 +99,9 @@ function masVideosScroll() {
 
 function mostrarVideosScroll(datos) {
     try {
-        console.log("MOSTRAR VIDEOS SCROLL");
         var videos = document.querySelector('#videosScroll');
         var titulo = "Milagro";
         var descripcion = "Lo sobrenatural de Dios";
-
 
         for (let video of datos) {
             videos.innerHTML += `
@@ -133,15 +130,8 @@ function mostrarVideosScroll(datos) {
 }
 
 
-function confirm(id) {
-    console.log(id);
-    //window.location.assign("http://localhost:8383/a/index.html/".id);
-}
-
 function editar(id) {
     try {
-        console.log("LISTAR");
-        console.log(id);
         sessionStorage.setItem('id', id);
         document.location.href = "editarvideo.php";
     } catch (error) {
@@ -151,16 +141,9 @@ function editar(id) {
 
 function eliminar(id) {
     try {
-        console.log("Eliminar");
-        console.log(id);
-        //window.location.assign("http://localhost:8383/a/index.html/".id);
-
         var f = new FormData();
-        console.log("DATOS DEL FORMULARIO");
         f.append('videos', 3);
         f.append('id', id);
-        console.log(f.get('id'));
-        console.log(f.get('videos'));
 
         fetch('http://localhost/scroll/videoapi.php', {
             method: 'POST',
@@ -168,13 +151,7 @@ function eliminar(id) {
         })
                 .then(datos => datos.json())
                 .then(datos => {
-                    console.log("Llegó este ID: ");
-                    console.log(datos);
-
-                    console.log("RESPUESTA");
-                    console.log(datos);
                     if (datos === 1) {
-                        console.log("REGISTRO ELIMINADO");
                         cargarVideos();
                     } else {
                         console.log("NO SE PUDO ELIMINAR");
