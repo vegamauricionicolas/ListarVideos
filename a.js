@@ -10,7 +10,6 @@ function cargarVideos() {
     try {
         var formData = new FormData();
         formData.append('videos', 'cargar');
-        //formData.append('id', 1);
 
         fetch('http://localhost/scroll/videoapi.php', {
             method: 'POST',
@@ -34,7 +33,6 @@ function mostrarVideos(datos) {
         videos.innerHTML = '';
 
         for (let video of datos) {
-            //console.log(video.url);
             videos.innerHTML += `
                 <div class="col-lg-4 col-md-6 mb-4 my-5">
                     <iframe 
@@ -56,8 +54,6 @@ function mostrarVideos(datos) {
     } catch (error) {
         console.error(error);
     }
-
-
 }
 
 
@@ -120,10 +116,4 @@ function mostrarVideosScroll(datos) {
         console.error(error);
     }
 
-}
-
-
-function confirm(id) {
-    console.log(id);
-    //window.location.assign("http://localhost:8383/a/index.html/".id);
 }
