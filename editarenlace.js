@@ -17,8 +17,6 @@ function permiso(){
 function cargarDatos() {
     try {
         var id = sessionStorage.getItem('id');
-        console.log("CARGAR DATOS");
-        console.log(id);
         var formData = new FormData();
         formData.append('id', id);
         formData.append('videos', '6');
@@ -29,8 +27,6 @@ function cargarDatos() {
         })
                 .then(datos => datos.json())
                 .then(datos => {
-                    console.log("DATOS RECIBIDOS");
-                    console.log(datos);
                     var videos = document.getElementById('editar');
 
                     for (let video of datos) {
@@ -77,25 +73,12 @@ function enviarDatos() {
 
             datos.append('videos', 'editar');
 
-
-            console.log("DATOS DEL FORMULARIO");
-            console.log(datos.get('titulo'));
-            console.log(datos.get('enlace'));
-            console.log(datos.get('descripcion'));
-            console.log(datos.get('id'));
-            console.log(datos.get('videos'));
-            /*console.log(datos.get('titulo'));
-             console.log(datos.get('enlace'));
-             console.log(datos.get('descripcion'));*/
-
             fetch('http://localhost/scroll/videoapi.php', {
                 method: 'POST',
                 body: datos
             })
                     .then(res => res.json())
                     .then(data => {
-                        console.log("RESPUESTA");
-                        console.log(data);
                         if (data === 1) {
                             respuesta.innerHTML = `
                 <div class="alert alert-primary" role="alert">
