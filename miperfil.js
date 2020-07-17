@@ -44,7 +44,6 @@ function mostrarMiPerfil(datos) {
         miperfil.innerHTML = '';
 
         for (let usuario of datos) {
-            //console.log(video.url);
             miperfil.innerHTML += `
                 <div class="col-lg-4 col-md-6 mb-4 my-5">
                     <h3>${usuario.nombre}</h3>
