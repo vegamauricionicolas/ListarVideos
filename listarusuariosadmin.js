@@ -16,9 +16,7 @@ function permiso(){
 function cargarUsuarios() {
     try {
         var formData = new FormData();
-        formData.append('tarea', 'cargar');
-        //el ID que envio aca abajo es el del USUARIO que voy a cargar los videos
-        
+        formData.append('tarea', 'cargar');        
 
         fetch('http://localhost/scroll/usuarioapi.php', {
             method: 'POST',
@@ -40,7 +38,6 @@ function mostrarUsuarios(datos) {
         usuarios.innerHTML = '';
 
         for (let usuario of datos) {
-            //console.log(video.url);
             usuarios.innerHTML += `
                 <div class="col-lg-4 col-md-6 mb-4 my-5">
                     <h3>${usuario.nombre}</h3>
@@ -88,11 +85,7 @@ function masUsuariosScroll() {
 
 function mostrarUsuariosScroll(datos) {
     try {
-        console.log("MOSTRAR VIDEOS SCROLL");
         var usuarios = document.getElementById('usuariosScroll');
-        var titulo = "Milagro";
-        var descripcion = "Lo sobrenatural de Dios";
-
 
         for (let usuario of datos) {
             usuarios.innerHTML += `
@@ -111,15 +104,8 @@ function mostrarUsuariosScroll(datos) {
 }
 
 
-function confirm(id) {
-    console.log(id);
-    //window.location.assign("http://localhost:8383/a/index.html/".id);
-}
-
 function editar(id) {
     try {
-        console.log("LISTAR");
-        console.log(id);
         sessionStorage.setItem('id', id);
         document.location.href = "editarvideo.php";
     } catch (error) {
@@ -129,16 +115,9 @@ function editar(id) {
 
 function eliminar(id) {
     try {
-        console.log("Eliminar");
-        console.log(id);
-        //window.location.assign("http://localhost:8383/a/index.html/".id);
-
         var f = new FormData();
-        console.log("DATOS DEL FORMULARIO");
         f.append('tarea', 'eliminar');
         f.append('id', id);
-        console.log(f.get('id'));
-        console.log(f.get('tarea'));
 
         fetch('http://localhost/scroll/usuarioapi.php', {
             method: 'POST',
@@ -146,13 +125,7 @@ function eliminar(id) {
         })
                 .then(datos => datos.json())
                 .then(datos => {
-                    console.log("Llegó este ID: ");
-                    console.log(datos);
-
-                    console.log("RESPUESTA");
-                    console.log(datos);
                     if (datos === 1) {
-                        console.log("REGISTRO ELIMINADO");
                         cargarVideos();
                     } else {
                         console.log("NO SE PUDO ELIMINAR");
