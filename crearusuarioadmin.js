@@ -48,19 +48,7 @@ function enviarDatos() {
             var datos = new FormData(formulario);
             datos.append('tarea', 'crear');
             datos.append('creador', 'mauricio');
-            datos.append('rol', 'productor');
-            console.log("DATOS DEL FORMULARIO");
-            /*console.log(datos.get('nombre'));
-            console.log(datos.get('email'));
-            console.log(datos.get('user'));
-            console.log(datos.get('pass'));
-            console.log(datos.get('pass2'));
-            console.log(datos.get('tarea'));
-            console.log(datos.get('creador'));
-            console.log(datos.get('rol'));*/
-            /*console.log(datos.get('titulo'));
-             console.log(datos.get('enlace'));
-             console.log(datos.get('descripcion'));*/
+            datos.append('rol', 'productor');            
 
             fetch('http://localhost/scroll/usuarioapi.php', {
                 method: 'POST',
@@ -68,8 +56,6 @@ function enviarDatos() {
             })
                     .then(res => res.json())
                     .then(data => {
-                        console.log("RESPUESTA");
-                        console.log(data);
                         if (data === 1) {
                             respuesta.innerHTML = `
                 <div class="alert alert-primary" role="alert">
