@@ -1,2 +1,3 @@
 # ListarVideos
 Esta es una plataforma de videos de youtube. Es básica. Tiene crud de usuarios creadores de contenido.  Requisitos de software para ejecutar el proyecto: XAMPP 7.1.7. Solo ha sido probado en Windows 7 de 32 bits. La seguridad tanto en el cliente como en el servidor es muy baja. Falta proteger de inyección SQL. Este proyecto irá creciendo y mejorando.
+La carpeta donde coloques todos los archivos debe llamarse "scroll" para que no tengas que cambiar todas las urls que hay dentro del proyecto. Luego de eso, ejecutas el proyecto en el navegador de internet y para indentificarte como administrador tenes que usar el usuario "mauricio" y la contraseña "1"...exactamente...ASÍ DE COMPLICADA ES LA CONTRASEÑA mientras estoy trabajando en localhost.
